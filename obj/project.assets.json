@@ -8851,19 +8851,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ahmer\\.nuget\\packages\\": {}
+    "C:\\Users\\ahmer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\aham\\AhamGit\\net-core-repo\\core-web-api1\\core-web-api1.csproj",
+      "projectUniqueName": "D:\\Aham\\AhamGit\\transpro-repo\\core-web-api1\\core-web-api1.csproj",
       "projectName": "core-web-api1",
-      "projectPath": "E:\\aham\\AhamGit\\net-core-repo\\core-web-api1\\core-web-api1.csproj",
-      "packagesPath": "C:\\Users\\Ahmer\\.nuget\\packages\\",
-      "outputPath": "E:\\aham\\AhamGit\\net-core-repo\\core-web-api1\\obj\\",
+      "projectPath": "D:\\Aham\\AhamGit\\transpro-repo\\core-web-api1\\core-web-api1.csproj",
+      "packagesPath": "C:\\Users\\ahmer\\.nuget\\packages\\",
+      "outputPath": "D:\\Aham\\AhamGit\\transpro-repo\\core-web-api1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ahmer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ahmer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8875,6 +8875,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -8886,6 +8887,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
@@ -8936,7 +8938,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.407\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

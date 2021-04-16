@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using core_web_api1.Context;
 using core_web_api1.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,10 +20,11 @@ namespace core_web_api1.Controllers
             _myDbContext = myDbContext;
         }
 
-        [HttpGet]
+        [HttpGet]        
         public IEnumerable<City> Get()
         {
             var data = _myDbContext.City.ToList();
+            
             return data;
         }
 
@@ -37,28 +39,32 @@ namespace core_web_api1.Controllers
         }
 
         [HttpPut("{id}")]
-        public City Put(int id, [FromBody] City City)
+        public City Put(int id, [FromBody] City city)
         {
-            City.RecDate = DateTime.Now;
-            var data = _myDbContext.City.Update(City);
-            _myDbContext.SaveChanges();
-            return City;
+            city.RecDate = DateTime.Now;
+            city.CityId = id;
+            var data = _myDbContext.City.Update(city);
+            return city;
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            City City = _myDbContext.City.Where(item => item.CityId == id).FirstOrDefault();
-            _myDbContext.City.Remove(City);
-            _myDbContext.SaveChanges();
+            City city = _myDbContext.City.Where(item => item.CityId == id).FirstOrDefault();
+
+            if(city != null){
+                _myDbContext.City.Remove(city);
+                _myDbContext.SaveChanges();
+            }
+           
             return Ok();
         }
 
         [HttpGet("GetById/{id}")]
         public City GetById(int id)
         {
-            City City = _myDbContext.City.Where(item => item.CityId == id).FirstOrDefault();
-            return City;
+            City city = _myDbContext.City.Where(item => item.CityId == id).FirstOrDefault();
+            return city;
         }
 
         [HttpGet("IsDuplicate/{id}/{cityName}")]
@@ -71,7 +77,12 @@ namespace core_web_api1.Controllers
         [HttpGet("GetNewId")]
         public int GetNewId()
         {
-            var newId = _myDbContext.City.Max(item => item.CityId) + 1;
+            // var newId = _myDbContext.City.Max(item => item.CityId);
+            var _serial = _myDbContext.Serial.ToList();
+            _serial[0].CityId = _serial[0].CityId + 1;
+            _myDbContext.SaveChanges();
+
+            int newId =  _serial[0].CityId;
             return newId;
         }
     }

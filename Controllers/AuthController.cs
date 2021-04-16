@@ -29,7 +29,7 @@ namespace core_web_api1.Controllers
                     issuer: "https://localhost:5001",
                     audience: "https://localhost:5001",
                     claims: new List<Claim>(),
-                    expires: DateTime.Now.AddMinutes(5),
+                    expires: DateTime.Now.AddHours(1),
                     signingCredentials: signingCredentials
                 );
 
