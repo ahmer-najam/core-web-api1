@@ -12,6 +12,7 @@ namespace core_web_api1.Context
         public MyDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<City> City { get; set; }
+        public DbSet<Serial> Serial { get; set; }
 
     }
 }
